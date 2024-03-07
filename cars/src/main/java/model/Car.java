@@ -5,28 +5,38 @@
 */
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "cars")
+@Entity
+@Table(name = "cars")
 public class Car {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int rowId;
+	private int carId;
 
 	private String carMake;
 	private String carModel;
 	private int carYear;
+	@ManyToOne
+	@JoinColumn(name="garageId", nullable = false)
+	private Garage garage = new Garage();
 
-	public int getRowId() {
-		return rowId;
+	
+
+	public int getCarId() {
+		return carId;
 	}
 
-	public void setRowId(int rowId) {
-		this.rowId = rowId;
+	public void setCarId(int rowId) {
+		this.carId = rowId;
 	}
 
 	public String getCarMake() {
@@ -55,12 +65,20 @@ public class Car {
 		this.carYear = carYear;
 	}
 
-	
+	public Garage getGarage() {
+		return garage;
+	}
+
+
+	public void setGarage(Garage garage) {
+		this.garage = garage;
+	}
 
 	
 	}
 	
 	
+
 
 
 

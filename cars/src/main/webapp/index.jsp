@@ -8,13 +8,15 @@
 </head>
 <body>
 
-	<a href="add.jsp">Add Cars</a> <br>
-	<a href="update.jsp">Update Cars</a> <br>
-	<a href="delete.jsp">Delete Cars</a> <br>
-		<form action="ViewCars" method="get">
-			<input type="submit" value="View Cars"/>
-		</form>
 	
+	<a href="AddGarage.jsp">Add Garage</a> <br>
+	<a href="add.jsp">Add Cars</a> <br>
+		<form action="ViewGarage" method="get">
+			<input type="submit" value="View Garage"/>
+		</form>
+		<a href="UpdateGarage.jsp">Update Garage</a> <br>
+		<a href="deleteGarage.jsp">Delete Garage</a>
+		
 
 </body>
 </html>

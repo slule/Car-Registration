@@ -1,4 +1,4 @@
-package controller;
+package controllerGarage;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,47 +7,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import helpers.GarageHelper;
 import model.Car;
+import model.Garage;
 
 /**
- * Servlet implementation class update
+ * Servlet implementation class UpdateGarage
  */
-@WebServlet("/update")
-public class update extends HttpServlet {
+@WebServlet("/UpdateGarage")
+public class UpdateGarage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public update() {
+    public UpdateGarage() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CarsHelper helper = new CarsHelper();
-		
+		GarageHelper helper = new GarageHelper ();
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String oldMake = request.getParameter("oldMake");
-		String carMake = request.getParameter("carMake");
-		String carModel = request.getParameter("carModel");
-		int carYear = Integer.parseInt(request.getParameter("carYear"));
+		String oldName = request.getParameter("oldName");
+		String name = request.getParameter("newName");
+		String location = request.getParameter("location");
+
 		
-		Car carToUpdate = helper.searchCarByMake(oldMake);
-		carToUpdate.setCarMake(carMake);
-		carToUpdate.setCarModel(carModel);
-		carToUpdate.setCarYear(carYear);
-		
-		helper.update(carToUpdate);
+		Garage garageToUpdate = helper.searchGarageByName(oldName);
+		garageToUpdate.setName(name);
+		garageToUpdate.setLocation(location);
+		helper.update(garageToUpdate);
 		
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		
-		
 	}
 
-
 }
-

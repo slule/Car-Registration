@@ -8,9 +8,11 @@
 </head>
 <body>
 	<form action="AddCar" method="post">
-	Car Make: <input type="text" name="carMake" size="25"/>
-	Car Model: <input type="text" name="carModel" size="25"/>
-	Car Year: <input type="text" name="carYear" size=25/>
+		Garage Name:<input
+			type="text" name="garageName" size="25"/> 
+		Car Make: <input type="text" name="carMake" size="25"/>
+		Car Model: <input type="text" name="carModel" size="25"/>
+		Car Year: <input type="text" name="carYear" size=25/>
 		
 	<input type="submit" value="submit"/>
 	

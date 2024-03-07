@@ -1,4 +1,4 @@
-package controller;
+package controllerCar;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,34 +7,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import helpers.CarsHelper;
 import model.Car;
 
 /**
- * Servlet implementation class AddCar
+ * Servlet implementation class delete
  */
-@WebServlet("/AddCar")
-public class AddCar extends HttpServlet {
+@WebServlet("/delete")
+public class delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	
-	public AddCar() {
-		super();
-		
+    public delete() {
+        super();
+        // TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Car t = new Car();
 		CarsHelper helper = new CarsHelper();
-		t.setCarMake(request.getParameter("carMake"));
-		t.setCarModel(request.getParameter("carModel"));
-		t.setCarYear(Integer.parseInt(request.getParameter("carYear")));
-		helper.persist(t);
+		String carMake = request.getParameter("carMake");
+		Car deleteable = helper.searchCarByMake(carMake);
+		helper.delete(deleteable);
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-		
-		
 		
 		
 	}

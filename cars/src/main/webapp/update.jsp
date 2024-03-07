@@ -11,7 +11,7 @@
 	New Car Make: <input type="text" name="carMake" size="25" />
 	New Car Model: <input type="text" name="carModel" size="25" />
 	New Car Year: <input type="text" name="carYear" size="25" />
-	
+	New Garage Name: <input type="text" name="garageName" size="25" />
 	Enter the Current Car Make: <input type="text" name=oldMake size="25"/>
 	<input type="submit" value="update" />
 	
